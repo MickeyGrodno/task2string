@@ -1,8 +1,6 @@
-package com.epam.task2.entity.parser;
+package com.epam.task2.parser;
 
 import com.epam.task2.entity.*;
-
-import javax.swing.plaf.IconUIResource;
 
 public class SentenceToWordAndMarkParser {
     String wordElements = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvw" +

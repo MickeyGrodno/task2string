@@ -1,8 +1,7 @@
-package com.epam.task2.entity.parser;
+package com.epam.task2.parser;
 
 import com.epam.task2.entity.CompositeStringPart;
 import com.epam.task2.entity.Paragraph;
-import com.epam.task2.entity.Sentence;
 import com.epam.task2.entity.Text;
 
 public class TextToWordCompositeParser {

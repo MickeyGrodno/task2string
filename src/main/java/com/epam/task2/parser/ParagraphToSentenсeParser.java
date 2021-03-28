@@ -1,12 +1,4 @@
-package com.epam.task2.entity.parser;
-
-import com.epam.task2.entity.CompositeStringPart;
-import org.checkerframework.checker.units.qual.A;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+package com.epam.task2.parser;
 
 public class ParagraphToSentenсeParser {
     public String[] parseParagraphToSentence(String text) {

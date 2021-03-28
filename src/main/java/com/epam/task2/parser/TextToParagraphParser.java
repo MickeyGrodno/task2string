@@ -1,7 +1,4 @@
-package com.epam.task2.entity.parser;
-
-import com.epam.task2.entity.CompositeStringPart;
-import com.epam.task2.entity.Text;
+package com.epam.task2.parser;
 
 public class TextToParagraphParser {
     public String[] parseTextToParagraph(String allText) {

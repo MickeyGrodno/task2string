@@ -1,8 +1,7 @@
 package com.epam.task2;
 
 import com.epam.task2.entity.CompositeStringPart;
-import com.epam.task2.entity.Text;
-import com.epam.task2.entity.parser.TextToWordCompositeParser;
+import com.epam.task2.parser.TextToWordCompositeParser;
 import com.epam.task2.service.TextFromFileReaderWriter;
 
 import java.io.IOException;
