@@ -11,8 +11,7 @@ public class TextFromFileReaderWriter {
             textFromFile.append(scanner.nextLine()+"\n");
         }
 
-        return textFromFile.toString().trim().replaceAll(" +", " ");
-
+        return textFromFile.toString();
 //        (Scanner in = new Scanner(new File(fileName)
     }
 }

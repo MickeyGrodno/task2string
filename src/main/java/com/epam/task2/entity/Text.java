@@ -9,7 +9,7 @@ public class Text implements CompositeStringPart{
     public String returnString() {
         StringBuilder text = new StringBuilder();
         listOfParagraphsOfText.forEach(a -> text.append(a.returnString()));
-        return text.toString();
+        return text.toString().replaceAll("( )+", " ");
     }
 
     public void addComponentToList(CompositeStringPart element) {

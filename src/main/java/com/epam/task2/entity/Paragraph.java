@@ -8,7 +8,7 @@ public class Paragraph implements CompositeStringPart{
     public String returnString() {
         StringBuilder paragraph = new StringBuilder();
         listOfParagraphSentences.forEach(a -> paragraph.append(a.returnString()));
-        return paragraph.toString();
+        return paragraph.append('\n').toString();
     }
 
     public void addComponentToList(CompositeStringPart element) {
@@ -16,6 +16,6 @@ public class Paragraph implements CompositeStringPart{
     }
 
     public ArrayList<CompositeStringPart> getListOfString() {
-        return null;
+        return listOfParagraphSentences;
     }
 }
