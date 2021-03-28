@@ -24,7 +24,7 @@ public class Word implements CompositeStringPart{
 
     }
 
-    public ArrayList<CompositeStringPart> getListOfString() {
+    public ArrayList<CompositeStringPart> getListOfComponents() {
         return null;
     }
 }

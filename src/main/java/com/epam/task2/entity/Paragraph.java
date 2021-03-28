@@ -15,7 +15,7 @@ public class Paragraph implements CompositeStringPart{
         listOfParagraphSentences.add(element);
     }
 
-    public ArrayList<CompositeStringPart> getListOfString() {
+    public ArrayList<CompositeStringPart> getListOfComponents() {
         return listOfParagraphSentences;
     }
 }

@@ -12,7 +12,7 @@ public class TextToWordCompositeParser {
     ParagraphToSentenсeParser paragraphToSentenсeParser = new ParagraphToSentenсeParser();
     SentenceToWordAndMarkParser sentenceToWordAndMarkParser = new SentenceToWordAndMarkParser();
 
-    public CompositeStringPart parseTextToWord(String fullText) {
+    public Text parseTextToWord(String fullText) {
         String[] paragraphArr = textToParagraphParser.parseTextToParagraph(fullText);
         for(String paragraphText : paragraphArr) {
             String[] sentenceArr = paragraphToSentenсeParser.parseParagraphToSentence(paragraphText);
@@ -23,6 +23,6 @@ public class TextToWordCompositeParser {
             compositeText.addComponentToList(compositeParagraph);
             compositeParagraph = new Paragraph();
         }
-        return compositeText;
+        return (Text) compositeText;
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Text implements CompositeStringPart{
-    private List<CompositeStringPart> listOfParagraphsOfText = new ArrayList<>();
+    private ArrayList<CompositeStringPart> listOfParagraphsOfText = new ArrayList<>();
 
     public String returnString() {
         StringBuilder text = new StringBuilder();
@@ -16,7 +16,7 @@ public class Text implements CompositeStringPart{
         listOfParagraphsOfText.add(element);
     }
 
-    public ArrayList<CompositeStringPart> getListOfString() {
-        return null;
+    public ArrayList<CompositeStringPart> getListOfComponents() {
+        return listOfParagraphsOfText;
     }
 }

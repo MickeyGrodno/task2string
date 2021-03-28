@@ -2,11 +2,16 @@ package com.epam.task2.parser;
 
 import com.epam.task2.entity.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SentenceToWordAndMarkParser {
-    String wordElements = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvw" +
+    private final String WORD_ELEMENTS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvw" +
             "xyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'\\";
-    String endOfSentenceMarks = ".!?…";
-    String punctuationMarks = "<>:;\'\"@#№$%^&*)({}][-—=+/~,|";
+    private final String END_OF_SENTENCE_MARK = ".!?…";
+    private final String PUNCTUATION_MARK = "<>:;\'\"@#№$%^&*)({}][-—=+/~,|";
+    Set wordElementsSet = new HashSet();
+
 
     private void saveWord(CompositeStringPart sentence, StringBuilder word) {
         sentence.addComponentToList(new Word(word.toString()));
@@ -20,11 +25,15 @@ public class SentenceToWordAndMarkParser {
     public CompositeStringPart parseSentenсeToWordAndMark(String sentenceInString) {
         StringBuilder word = new StringBuilder();
         CompositeStringPart sentence = new Sentence();
+
+        for (char element : WORD_ELEMENTS.toCharArray()) {
+            wordElementsSet.add(element);
+        }
         int counter = 1;
 
         char[] sentenceInChar = sentenceInString.toCharArray();
         for (char element : sentenceInChar) {
-            if (wordElements.contains(String.valueOf(element))) {
+            if (wordElementsSet.contains(element)) {
                 word.append(element);
             }
             if (element == ' ' && word.length() != 0) {
@@ -35,16 +44,16 @@ public class SentenceToWordAndMarkParser {
                 saveMark(sentence, element);
             }
 
-            if (punctuationMarks.contains(String.valueOf(element)) && word.length() != 0) {
+            if (PUNCTUATION_MARK.contains(String.valueOf(element)) && word.length() != 0) {
                 saveWord(sentence, word);
                 saveMark(sentence, element);
                 word.setLength(0);
-            } else if (punctuationMarks.contains(String.valueOf(element)) && word.length() == 0) {
+            } else if (PUNCTUATION_MARK.contains(String.valueOf(element)) && word.length() == 0) {
                 saveMark(sentence, element);
             }
-            if (endOfSentenceMarks.contains(String.valueOf(element)) && word.length() != 0 && sentenceInChar.length > counter) {
+            if (END_OF_SENTENCE_MARK.contains(String.valueOf(element)) && word.length() != 0 && sentenceInChar.length > counter) {
                 word.append(element);
-            } else if ((endOfSentenceMarks.contains(String.valueOf(element)) && word.length()!=0 && sentenceInChar.length==counter)) {
+            } else if ((END_OF_SENTENCE_MARK.contains(String.valueOf(element)) && word.length()!=0 && sentenceInChar.length==counter)) {
                 saveWord(sentence, word);
                 saveMark(sentence, element);
                 word.setLength(0);

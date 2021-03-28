@@ -7,7 +7,7 @@ public class Sentence implements CompositeStringPart{
 
     public String returnString() {
         StringBuilder sentence = new StringBuilder();
-        for(CompositeStringPart part : getListOfString()) {
+        for(CompositeStringPart part : getListOfComponents()) {
             sentence.append(part.returnString());
         }
         return sentence.insert(0, " ").toString();
@@ -17,7 +17,7 @@ public class Sentence implements CompositeStringPart{
         sentenceWordList.add(element);
     }
 
-    public ArrayList<CompositeStringPart> getListOfString() {
+    public ArrayList<CompositeStringPart> getListOfComponents() {
         return sentenceWordList;
     }
 }
