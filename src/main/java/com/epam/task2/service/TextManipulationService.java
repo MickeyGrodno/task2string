@@ -19,11 +19,17 @@ public class TextManipulationService {
     }
 
     private ArrayList<Sentence> getAllSentences(Text text) {
-        ArrayList allSentences = text.getListOfComponents().stream().
-                filter(paragraph -> paragraph.getListOfComponents() != null).
-                flatMap(paragraph -> paragraph.getListOfComponents().stream()).
-                filter(sentence -> sentence.getListOfComponents() != null).
-                collect(Collectors.toCollection((Supplier<ArrayList>) ArrayList::new));
+        Supplier<ArrayList> collectionFactory = ArrayList::new;
+        ArrayList allSentences = collectionFactory.get();
+        for (CompositeStringPart paragraph : text.getListOfComponents()) {
+            if (paragraph.getListOfComponents() != null) {
+                for (CompositeStringPart sentence : paragraph.getListOfComponents()) {
+                    if (sentence.getListOfComponents() != null) {
+                        allSentences.add(sentence);
+                    }
+                }
+            }
+        }
         return allSentences;
     }
     public void printSortedSentencesByWordCount(Text text) {
