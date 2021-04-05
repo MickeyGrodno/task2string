@@ -2,11 +2,11 @@ package com.epam.task2;
 
 import com.epam.task2.entity.Sentence;
 import com.epam.task2.entity.Text;
-import com.epam.task2.parser.ParagraphToSentenсeParserImpl;
+import com.epam.task2.parser.ParagraphToSentenceParserImpl;
 import com.epam.task2.parser.SentenceToWordAndMarkParserImpl;
 import com.epam.task2.parser.TextToParagraphParserImpl;
 import com.epam.task2.parser.TextToWordParserImpl;
-import com.epam.task2.parser.interfaces.ParagraphToSentenсeParser;
+import com.epam.task2.parser.interfaces.ParagraphToSentenceParser;
 import com.epam.task2.parser.interfaces.SentenceToWordAndMarkParser;
 import com.epam.task2.parser.interfaces.TextToParagraphParser;
 import com.epam.task2.parser.interfaces.TextToWordParser;
@@ -29,14 +29,14 @@ public class ParserTest {
     @Test
     public void parseParagraphToSentenceTest() {
         String correctValue = "Взаимозаменяемость представляет одно из самых мощных понятий ООП.";
-        ParagraphToSentenсeParser parser = new ParagraphToSentenсeParserImpl();
+        ParagraphToSentenceParser parser = new ParagraphToSentenceParserImpl();
         String[] sentence = parser.parseParagraphToSentence(textOneParagraphString);
         Assertions.assertEquals(correctValue, sentence[14]);
     }
     @Test
     public void parseSentenceToWordAndMarkTest() {
         SentenceToWordAndMarkParser parser = new SentenceToWordAndMarkParserImpl();
-        Sentence sentence = parser.parseSentenсeToWordAndMark(sentenceString);
+        Sentence sentence = parser.parseSentenceToWordAndMark(sentenceString);
         Assertions.assertEquals("Smalltalk", sentence.getListOfComponents().get(20).returnString());
     }
     @Test

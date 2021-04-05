@@ -23,6 +23,6 @@ public class TextFromFileReaderImpl implements TextFromFileReader {
         catch (FileNotFoundException e) {
             LOGGER.error("Не удалось найти файл по указанному адресу", e);
         }
-        return textFromFile.toString();
+        return textFromFile.toString().replaceAll("( )+", " ");
     }
 }

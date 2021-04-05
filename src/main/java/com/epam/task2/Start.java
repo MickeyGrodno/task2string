@@ -21,5 +21,6 @@ public class Start {
         System.out.println();
         System.out.println("_____________________________________________");
         service.printSortedSentencesByWordCount(text);
+        System.out.println(text.returnString());
     }
 }
